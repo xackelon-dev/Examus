@@ -1,0 +1,596 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Snell+Roundhand&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchInput');
+            const questions = document.querySelectorAll('.question-item');
+            const noResults = document.getElementById('noResults');
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            searchInput.addEventListener('input', function () {
+                const query = searchInput.value.toLowerCase();
+                let hasResults = false;
+
+                questions.forEach(function (question) {
+                    const questionText = question.querySelector('h2').textContent.toLowerCase();
+                    const answerText = question.querySelector('p').textContent.toLowerCase();
+                    if (questionText.includes(query) || answerText.includes(query)) {
+                        question.style.display = '';
+                        hasResults = true;
+                    } else {
+                        question.style.display = 'none';
+                    }
+                });
+
+                if (hasResults) {
+                    noResults.style.display = 'none';
+                } else {
+                    noResults.style.display = 'block';
+                }
+            });
+
+            themeToggle.addEventListener('click', function () {
+                body.classList.toggle('dark');
+                if (body.classList.contains('dark')) {
+                    body.style.backgroundImage = "url('https://storage.googleapis.com/a1aa/image/pattern-dark.png')";
+                } else {
+                    body.style.backgroundImage = "url('https://storage.googleapis.com/a1aa/image/pattern-light.png')";
+                }
+            });
+        });
+    </script>
+    <style>
+        .dark {
+            background-color: #1a202c;
+            color: #a0aec0;
+        }
+        .dark .bg-white {
+            background-color: #2d3748;
+        }
+        .dark .border-gray-300 {
+            border-color: #4a5568;
+        }
+        .dark .text-gray-100 {
+            color: #a0aec0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #38a169, #48bb78, #81e6d9, #d4fc79);
+            background-size: 200% 200%;
+            animation: gradient-animation 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-roboto" style="background-image: url('https://storage.googleapis.com/a1aa/image/pattern-light.png');">
+    <header class="bg-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+        <div class="text-3xl font-bold bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text ml-4">
+            e
+        </div>
+        <div class="flex items-center space-x-4 flex-grow mx-4">
+            <input id="searchInput" type="text" placeholder="Search..." class="w-full p-2 border border-gray-300 rounded-md flex-grow">
+            <button id="themeToggle" class="p-2 border border-gray-300 rounded-md">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+    </header>
+    <div class="container mx-auto p-4 mt-20">
+        <main>
+            <h1 class="text-4xl font-snell-roundhand gradient-text text-center mb-8">Welcome to Examus</h1>
+            <div class="hidden text-center" id="noResults">
+                <img alt="A minimalistic modern magnifying glass icon indicating no search results found" height="200" src="https://storage.googleapis.com/a1aa/image/nwfW2u6iaV2QDCAxebfQr34ohbE4PMtgTAH7PsTggde3Rx0PB.jpg" width="200"/>
+                <p class="text-xl font-semibold mt-4">Ничего не найдено</p>
+            </div>
+            <ul class="space-y-4">
+                <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какая организация контролирует производство и эксплуатацию грузоподъемных машин общего назначения, работающих на земле?</h2>
+        <p class="mt-2">Госгортехнадзор</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы с оборудованием трамбовки представляет собой тяжелую плиту весом до</h2>
+        <p class="mt-2">3 тонн</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы с оборудованием трамбовки производит число ударов до</h2>
+        <p class="mt-2">15 в минуту</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">У экскаваторов с оборудованием трамбовки высота подъема плиты до</h2>
+        <p class="mt-2">2 метров</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">У экскаваторов с оборудованием трамбовки глубина воздействия плиты доходят до</h2>
+        <p class="mt-2">3 метров</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Индекс экскаватора ЭО - 3311 с канатом оборудованием мощностью N =37 кВт, масса </h2>
+        <p class="mt-2">0,4 м3</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такой экскаватор непрерывного действия?</h2>
+        <p class="mt-2">Землеройную машину, непрерывно разрабатывающую и одновременно транспортирующую грунт в отвал или транспортные средства.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такой бульдозер?</h2>
+        <p class="mt-2">Гусеничный или колесный трактор с навешенным в переди отвалом, приспособленным для срезания и перемешения грунта.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такой траншейный экскаватор?</h2>
+        <p class="mt-2">Машину для рытья траншей под водопроводы, канализацию, электрические и телефонные кабели.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такой трактор?</h2>
+        <p class="mt-2">Колесные или гусеничная машина, предназначенная для передвижения прицепных и навесных дорожных или других машин.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такое одноковшовый экскаватор?</h2>
+        <p class="mt-2">Самоходная землеройная машина периодического действия.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такое машина?</h2>
+        <p class="mt-2">Устройство, выполняющее механические движения для преобразования энергии, материалов и информации.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такое механизм?</h2>
+        <p class="mt-2">Систему тел, предназначенную для преобразования движения одного или нескольких твердых тел.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Грузоподъемные машины бывают?</h2>
+        <p class="mt-2">Домкраты, лебедки, краны, подъемники.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Основные виды подъемно транспортных машин?</h2>
+        <p class="mt-2">Грузоподъемные, транспортирующие, погрузочно-разгрузочные машины.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Как определяют степень измельчения?</h2>
+        <p class="mt-2">Отношение среднего размера куска до измельчения к среднему размеру куска после измельчения.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Как называется строительная машина?</h2>
+        <p class="mt-2">Устройство, которое преобразует размеры, форму, свойства или положение строительных материалов.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такое параметр?</h2>
+        <p class="mt-2">Количественная, реже качественная характеристика какого-либо существенного признака машины.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По режиму рабочего процесса различают какие строительные машины?</h2>
+        <p class="mt-2">Машины цикличного и непрерывного действия.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По способности передвигаться различают какие строительные машины?</h2>
+        <p class="mt-2">Стационарные и передвижные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Энергосиловое устройство, приводящее в движение машину называют?</h2>
+        <p class="mt-2">Привод.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такое трансмиссия?</h2>
+        <p class="mt-2">Устройства, обеспечивающие передачу движения от силовой установки к исполнительным механизмам.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие конвейеры относятся к конвейерам с гибким тяговым элементом?</h2>
+        <p class="mt-2">Пластинчатые.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие конвейеры относятся к конвейерам без гибким тяговым элементом?</h2>
+        <p class="mt-2">Винтовые.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Как называется измельчение?</h2>
+        <p class="mt-2">Процесс разрушения твердого тела посредством воздействия внешних механических сил.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что из нижеперечисленного является обязательными составными частями любой технологической, транспортирующей и грузоподъемной машины?</h2>
+        <p class="mt-2">Привод, передаточные устройства, система управления, рабочие органы.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Как определяют производительность?</h2>
+        <p class="mt-2">Количество продукции, произведенной машиной в единицу времени.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие типы трансмиссии применяются в современных строительных машинах?</h2>
+        <p class="mt-2">Все перечисленные типы.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Для чего применяются тормоза?</h2>
+        <p class="mt-2">Для регулирования скорости опускания груза или удержания груза на весу.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сила тяги на ведущих колесах автомобиля определяется по формуле T = G * (f + i). Что такое i?</h2>
+        <p class="mt-2">Уклон пути.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сила тяги на ведущих колесах автомобиля определяется по формуле T = G * (f + i). Что такое f?</h2>
+        <p class="mt-2">Коэффициент сопротивления движению.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Что такое грузоподъемные краны?</h2>
+        <p class="mt-2">Машины цикличного действия, предназначенные для подъема и перемещения груза.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Землеройные машины предназначаются для...</h2>
+        <p class="mt-2">Отделения грунта от массива.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">На монтажных работах применяют экскаваторы с оборудованием:</h2>
+        <p class="mt-2">С крановым оборудованием, С башенным краном</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Классификация одноковшовых экскаваторов по типу движителя.</h2>
+        <p class="mt-2">Пневмоколесные, гусеничные, шагающие.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Классификация одноковшовых экскаваторов по виду рабочего оборудования.</h2>
+        <p class="mt-2">Прямая и обратная лопата, драглайн и грейфер, Планировочный ковш и разгрузителей</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Классификация одноковшовых экскаваторов по использованию рабочего оборудования.</h2>
+        <p class="mt-2">Канатные, гидравлические, С телескопической стрелой</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Классификация экскаваторов непрерывного действия перемещения рабочего органа с продельным копанием.</h2>
+        <p class="mt-2">Цепной, роторный; Шнекароторный, двухроторный; Плужно роторный</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по типу ходового оборудования делятся:</h2>
+        <p class="mt-2">На гусеничные, пневмоколесные, На специальном шасси, На базе самоходный шасси</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по типу подвески рабочего оборудования различают:</h2>
+        <p class="mt-2">Экскаваторы с гибкой и жесткой подвеской.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Конструктивную массу экскаваторов входят:</h2>
+        <p class="mt-2">Масса машины с рабочим оборудованием и противовесом.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По принципу действия какие машины различают?</h2>
+        <p class="mt-2">Циклического и непрерывного действия.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По принципу подвижности какие машины различают?</h2>
+        <p class="mt-2">Переносные и стационарные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по типу привода различают:</h2>
+        <p class="mt-2">Механическое, гидромеханическое, гидравлическое, электрическое, Смешанные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по возможности вращения поворотной части (платформы) бывают:</h2>
+        <p class="mt-2">Полноповоротные, врашающейся вокруг вертикальной оси на неограниченный угол; и неполноповоротные, с ограниченным углом вращения платформы.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Основные виды грузоподъемных машин</h2>
+        <p class="mt-2">Домкраты, лебедки, краны, подъемники.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Основные виды подъемно-транспортных машин</h2>
+        <p class="mt-2">Грузоподъемные, транспортирующие, погрузочно-разгрузочные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По режиму рабочего процесса различают какие строительные машины?</h2>
+        <p class="mt-2">Циклического и непрерывного действия.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По способности передвигаться различают какие строительные машины?</h2>
+        <p class="mt-2">Стационарные и передвижные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По типу ходовых устройств различают какие виды строительных машин?</h2>
+        <p class="mt-2">Гусеничные, пневмоколесные, рельсоколесные, специальные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Механические передачи по принципу работы делят на какие виды?</h2>
+        <p class="mt-2">Передачи трением, передачи зацеплением.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие виды бывают механические передачи?</h2>
+        <p class="mt-2">Ременные, зубчатые, червячные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие виды соединений бывают?</h2>
+        <p class="mt-2">Резьбовое, сварочное, шпоночное.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">К основным видам транспортирующих машин какие машины относятся?</h2>
+        <p class="mt-2">Конвейеры, пневмотранспортные установки.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие конвейеры относятся к конвейерам с гибким тяговым элементом?</h2>
+        <p class="mt-2">Пластинчатые, ленточные, ковшовые.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие конвейеры относятся к конвейерам без гибким тяговым элементом?</h2>
+        <p class="mt-2"> Вибрационные, винтовые, роликовые.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Дробление подразделяют на:</h2>
+        <p class="mt-2">Крупное, среднее, мелкое.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Помол подразделяют на:</h2>
+        <p class="mt-2">Грубый, тонкий, сверхтонкий.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Дробильно-помольные машины классифицируют по крупности частиц конечного продукта на:</h2>
+        <p class="mt-2">Дробилки, мельницы.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">На какие типы краны разделяются по конструкции?</h2>
+        <p class="mt-2">Мостовые, козловые, башенные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Как условно различают виды измельчения в зависимости от крупности зерен готового продукта?</h2>
+        <p class="mt-2">Дробление, помол.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие дробилки получили широкое распространение в строительстве?</h2>
+        <p class="mt-2">Щековые, валковые, конусные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какие виды сортировки применяют при производстве строительных материалов?</h2>
+        <p class="mt-2">Механическую сортировку, гидравлическую, воздушную, магнитную сепарацию.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Как по способу образования смесей классифицируются смесители?</h2>
+        <p class="mt-2">Гравитационные, принудительного.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Совокупность силового оборудования, трансмиссии и систем управления, обеспечивающих приведение в действие механизмов машины и рабочих органов называется:</h2>
+        <p class="mt-2">Привод.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Устройство, выполняющее механические движения для преобразования энергии, материалов и информации с целью замены или облегчения физического и умственного труда называется:</h2>
+        <p class="mt-2">Машина.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Систему тел, предназначенную для преобразования движения одного или нескольких твердых тел в требуемые движения других тел называют:</h2>
+        <p class="mt-2">Механизмами.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Отношение объема строительной продукции ко времени ее создания это:</h2>
+        <p class="mt-2">Производительность.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Домкрат, лебёдка, тали, мостовой кран, козловой кран, кабельный кран это:</h2>
+        <p class="mt-2">Основные виды грузоподъемных машин.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Раздавливание, истирание это:</h2>
+        <p class="mt-2">Процессы измельчения.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какой из перечисленных конвейеров относится к конвейерам с гибким тяговым органом?</h2>
+        <p class="mt-2">Ленточные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Какой из перечисленных конвейеров относится к конвейерам без гибкого тягового органа?</h2>
+        <p class="mt-2">Винтовые.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">В зависимости от крупности кусков измельченного материала процесс измельчения называют:</h2>
+        <p class="mt-2">Дробление.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Размер кусков определяют:</h2>
+        <p class="mt-2">Измерением.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Ковш экскаватора с гибкой подвеской, используемый для копания грунта ниже опорной поверхности самого экскаватора называется:</h2>
+        <p class="mt-2">Драглайн.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Оборудование для рытья глубоких котлованов (колодцев) в малосвязных грунтах и для перегрузки сыпучих материалов называется:</h2>
+        <p class="mt-2">Грейфер.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Основным параметром асфальтоукладчика является:</h2>
+        <p class="mt-2">Производительность.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Асфальтобетонные смесители какого типа имеют все агрегаты расположенные по площади:</h2>
+        <p class="mt-2">Партерные.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">К землеройно-транспортным машинам, оборудованным ковшовым рабочим органом, относят:</h2>
+        <p class="mt-2">Скреперы.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Основным параметром одноковшовых погрузчиков является:</h2>
+        <p class="mt-2">Грузоподъемность.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по числу установленных двигателей сколько типов бывает?</h2>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по возможности вращения поворотной части (платформы) сколько типов бывает?</h2>
+        <p class="mt-2">4.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по типу ходового оборудования делятся на сколько групп?</h2>
+        <p class="mt-2">4.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Рабочий процесс экскаватора состоит из сколько циклов?</h2>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Экскаваторы по типу подвески рабочего оборудования делятся на сколько групп?</h2>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Рабочий цикл состоит из сколько основных операций?</h2>
+        <p class="mt-2">5.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Запас прочности канатов для подъема людей?</h2>
+        <p class="mt-2">9.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Запас прочности канатов для подъема груза?</h2>
+        <p class="mt-2">8.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Запас прочности грузовых цепей?</h2>
+        <p class="mt-2">8.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По принципу действия различают сколько машины?</h2>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По степени подвижности сколько бывают машины?</h2>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько механизмов у мостовых кранов?</h2>
+        <p class="mt-2">3.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько механизмов у козловых кранов?</h2>
+        <p class="mt-2">3.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько механизмов у башенных кранов?</h2>
+        <p class="mt-2">5.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько механизмов у автомобильных кранов?</h2>
+        <p class="mt-2">3.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько видов подъемно-транспортных машин?</h2>
+        <p class="mt-2">3.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько видов бывают у грузоподъемных машин?</h2>
+        <p class="mt-2">4.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Если отношение среднего размера куска до измельчения D ср=1000 к среднему размеру куска после измельчения d ср=200, сколько будет равно степень измельчения?</h2>
+        <p class="mt-2">5.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Если отношение среднего размера куска до измельчения D ср=800 к среднему размеру куска после измельчения d ср=200, сколько будет равно степень измельчения?</h2>
+        <p class="mt-2">4.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Если отношение среднего размера куска до измельчения D ср=1400 к среднему размеру куска после измельчения d ср=200, сколько будет равно степень измельчения?</h2>
+        <p class="mt-2">7.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По режиму рабочего процесса различают сколько видов строительных машин?</h2>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По способности передвигаться различают сколько видов у строительных машин?</h2>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">По типу ходовых устройств различают сколько видов строительных машин?</h2>
+        <p class="mt-2">4.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько видов различают грузоподъемных машин?</h2>
+        <p class="mt-2">4.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Сколько видов бывают подъемно-транспортные машины?</h2>
+        <p class="mt-2">3.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Определите степень редуктора?</h2>
+        <img height="400" src="13.bmp" width="400"/>
+        <p class="mt-2">1.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Определите степень редуктора?</h2>
+        <img height="400" src="14.bmp" width="400"/>
+        <p class="mt-2">2.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Определите степень редуктора?</h2>
+        <img height="400" src="15.bmp" width="400"/>
+        <p class="mt-2">3.</p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Ременная передача</h2>
+        <img height="400" src="1.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Червячная передача</h2>
+        <img height="400" src="2.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Цепная передача</h2>
+        <img height="400" src="3.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Домкрат</h2>
+        <img height="400" src="4.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Лебёдка</h2>
+        <img height="400" src="5.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Тали</h2>
+        <img height="400" src="6.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Мостовой кран</h2>
+        <img height="400" src="7.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Козловой кран</h2>
+        <img height="400" src="8.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Кабельный кран</h2>
+        <img height="400" src="9.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Раздавливание</h2>
+        <img height="400" src="10.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Истирание</h2>
+        <img height="400" src="11.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+        <h2 class="text-xl font-semibold">Удар</h2>
+        <img height="400" src="12.bmp" width="400"/>
+        <p class="mt-2"></p>
+    </li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
