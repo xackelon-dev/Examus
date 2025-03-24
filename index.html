@@ -1,0 +1,874 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examus</title>
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Snell+Roundhand&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="Examus"/>
+    <meta property="og:image" content="https://i.ibb.co/DChDsvJ/preview.png"/>
+    <meta property="og:description" content="Шпаргалка для СтроиМашины :)"/>
+    <meta property="og:url" content="https:///xackelon-dev.github.io/Examus"/>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627"/>
+    <meta property="og:type" content="website"/> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchInput');
+            const questions = document.querySelectorAll('.question-item');
+            const noResults = document.getElementById('noResults');
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            searchInput.addEventListener('input', function () {
+                const query = searchInput.value.toLowerCase();
+                let hasResults = false;
+
+                questions.forEach(function (question) {
+                    const questionText = question.querySelector('h2').textContent.toLowerCase();
+                    const answerText = question.querySelector('p').textContent.toLowerCase();
+                    if (questionText.includes(query) || answerText.includes(query)) {
+                        question.style.display = '';
+                        hasResults = true;
+                    } else {
+                        question.style.display = 'none';
+                    }
+                });
+
+                if (hasResults) {
+                    noResults.style.display = 'none';
+                } else {
+                    noResults.style.display = 'block';
+                }
+            });
+
+            themeToggle.addEventListener('click', function () {
+                body.classList.toggle('dark');
+                if (body.classList.contains('dark')) {
+                    body.style.backgroundImage = "url('https://storage.googleapis.com/a1aa/image/pattern-dark.png')";
+                } else {
+                    body.style.backgroundImage = "url('https://storage.googleapis.com/a1aa/image/pattern-light.png')";
+                }
+            });
+        });
+    </script>
+    <style>
+        .dark {
+            background-color: #1a202c;
+            color: #a0aec0;
+        }
+        .dark .bg-white {
+            background-color: #2d3748;
+        }
+        .dark .border-gray-300 {
+            border-color: #4a5568;
+        }
+        .dark .text-gray-100 {
+            color: #a0aec0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #38a169, #48bb78, #81e6d9, #d4fc79);
+            background-size: 200% 200%;
+            animation: gradient-animation 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-roboto" style="background-image: url('https://storage.googleapis.com/a1aa/image/pattern-light.png');">
+    <header class="bg-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+        <div class="text-3xl font-bold bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text ml-4">
+            e
+        </div>
+        <div class="flex items-center space-x-4 flex-grow mx-4">
+            <input id="searchInput" type="text" placeholder="Search..." class="w-full p-2 border border-gray-300 rounded-md flex-grow">
+            <button id="themeToggle" class="p-2 border border-gray-300 rounded-md">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+    </header>
+    <div class="container mx-auto p-4 mt-20">
+        <main>
+            <h1 class="text-4xl font-snell-roundhand gradient-text text-center mb-8">Welcome to Examus</h1>
+            <div class="hidden text-center" id="noResults">
+                <img alt="A minimalistic modern magnifying glass icon indicating no search results found" height="200" src="https://storage.googleapis.com/a1aa/image/nwfW2u6iaV2QDCAxebfQr34ohbE4PMtgTAH7PsTggde3Rx0PB.jpg" width="200"/>
+                <p class="text-xl font-semibold mt-4">Ooops, nothing found!</p>
+            </div>
+            <ul class="space-y-4">
+                <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">1. Какими методами определяется стоимость проектных работ:</h2>
+    <p class="mt-2">расчет проектных работ по трудозатратам</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">2. По уровню формирования бюджета различают налоги:</h2>
+    <p class="mt-2">общегосударственные, местные</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">3. Оценка объектов основных средств осуществляется по:</h2>
+    <p class="mt-2">первоначальной, остаточной, восстановительной и ликвидационной стоимости</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">4. Сдача имущества во временное пользование за определенную плату - называется:</h2>
+    <p class="mt-2">Аренда</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">5. Что означает первоначальная стоимость основных фондов (ОФ)?</h2>
+    <p class="mt-2">стоимость фактических денежных расходов на приобретение, доставку, установку (монтаж)</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">6. К основным фондам в строительстве относятся:</h2>
+    <p class="mt-2">здания и сооружения; рабочие машины и оборудование, силовые машины и оборудование, транспортные средства, инструмент и производственный инвентарь</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">7. Инвестиции характеризуют затраты, идущие на:</h2>
+    <p class="mt-2">развитие пред-приятия</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">8. Под портфельными инвестициями понимают:</h2>
+    <p class="mt-2">инвестиции, вкладываемые в финансовые активы</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">9. По экономической роли в процессе производства затраты бывают:</h2>
+    <p class="mt-2">основные и накладные</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">10. В состав отрасли строительства не входят:</h2>
+    <p class="mt-2">предприятия по производству строительной техники</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">11. Когда 1,3<Кр<2, то для обработки результатов хронометражных рядов используется метод:</h2>
+    <p class="mt-2">метод предельных значений</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">12. Строительство как отрасль</h2>
+    <p class="mt-2">как процесс создания и воспроизводства основных фондов для других отраслей, требующих необходимых капитальных вложений на его осуществление</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">13. Реальная заработная плата – это:</h2>
+    <p class="mt-2">сумма товаров и услуг, которую можно приобрести за полученный заработок с учетом изменения потребительских цен</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">14. Какая максимальная ставка налога на доходы физических лиц установлена в настоящее время в РТ. (%)</h2>
+    <p class="mt-2">12</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">15. По экономической роли в процессе производства затраты бывают:</h2>
+    <p class="mt-2">основные и накладные</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">16. Каким налогом является НДС?</h2>
+    <p class="mt-2">Общегосударственным</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">17. Когда Кр≤1,3, то для обработки результатов хронометражных рядов используется метод:</h2>
+    <p class="mt-2">ряд обработке не подлежит</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">18. Практическое использование результатов научных исследований, направленных на совершенствование производственного процесса, экономических, юридических, и социальных отношений во всех сферах деятельности общества - это:</h2>
+    <p class="mt-2">Инновация</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">19. По уровню формирования бюджета различают налоги:</h2>
+    <p class="mt-2">общегосударственные, местные</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">20. Целью расчета локальной ресурсной ведомости является:</h2>
+    <p class="mt-2">определение затрат на производство строительно-монтажных работ</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">21. Документ, отражающий сметную стоимость СМР:</h2>
+    <p class="mt-2">локальный сметный расчет</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">22. ЭСН -2007 расшифровывается как:</h2>
+    <p class="mt-2">элементные сметные нормы</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">23. Юридическое или физическое лицо, выполняющее СМР и оказывающее другие услуги по договору с заказчиком:</h2>
+    <p class="mt-2">Подрядчик</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">24. Заработная плата рабочих, которые переносят строительный материал от приобъектного склада до рабочего места, входит в статью расходов:</h2>
+    <p class="mt-2">заработная плата основных рабочих</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">25. Совокупность всех видов денежных, имущественных и интеллектуальных ценностей, вкладываемых в реализацию различных программ и проектов социальной, научной, культурной сферы деятельности – это:</h2>
+    <p class="mt-2">инвестиции</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">26. Какой из методов позволяет более точно определить сметную стоимость строительства:</h2>
+    <p class="mt-2">Ресурсный</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">27. Вложения в отрасли экономики, производство, обеспечивающие приращение реального капитала, то есть увеличение средств производства, материальных ценностей, запасов это:</h2>
+    <p class="mt-2">реальные инвестиции</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">28. Когда 1,3<Кp<2, то для обработки результатов хронометражных рядов используется метод:</h2>
+    <p class="mt-2">метод предельных значений</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">29. По отношению к объёму производства затраты бывают:</h2>
+    <p class="mt-2">переменные, постоянные и полупеременные</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">30. Индекс доходности должен быть:</h2>
+    <p class="mt-2">больше «1»</p>
+  </li>
+        <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">31. Коэффициент дисконтирования - это:</h2>
+    <p class="mt-2">величина равная отношению единицы к единице плюс норма дисконта в степени шага</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">32. Норма дисконта - это:</h2>
+    <p class="mt-2">приемлемая для инвестора норма доходности на капитал;</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">33. Дисконтирование - это:</h2>
+    <p class="mt-2">процедура приведения разновременных показателей к единой размерности</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">34. К пассивной части основных фондов относятся?</h2>
+    <p class="mt-2">здания и сооружения</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">35. Расширенное воспроизводство основных фондов обеспечивает следующая форма строительства:</h2>
+    <p class="mt-2">реконструкция</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">36. Приобретение в собственность имущества (оборудования) и предоставление его за определенную плату во временное владение и пользование – это:</h2>
+    <p class="mt-2">Лизинг</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">37. Строительство - это:</h2>
+    <p class="mt-2">отдельная самостоятельная отрасль экономики страны</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">38. К оборотным производственным фондам относятся:</h2>
+    <p class="mt-2">незавершенное производство; производственные запасы</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">39. К фондам обращения относятся</h2>
+    <p class="mt-2">готовая продукция на складе; денежные средства; дебеторская задолженность</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">40. Функции строительства</h2>
+    <p class="mt-2">новое строительство; расширение и рекострукция</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">41. Какие затраты не относятся к прямым затратам:</h2>
+    <p class="mt-2">затраты на содержание и эксплуатация вычислительной, множительной и другой оргтехники; накладные расходы</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">42. Инвестиционные проекты делятся на:</h2>
+    <p class="mt-2">производственные,научно-технические, социально-экономические; коммерческие, финансовые,экономические</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">43. При определении сметной стоимости объекта в сметной документации учитываются следующие виды налогов:</h2>
+    <p class="mt-2">социальный налог; НДС</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">44. В сводном сметном расчете учтено следующее:</h2>
+    <p class="mt-2">авторский надзор; технадзор; НДС 7%</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">45. Укажите - какие затраты входят в состав «Прямые затраты (ПЗ) » :</h2>
+    <p class="mt-2">затраты на приобретение строительных материалов, конструкций, деталей, топлива, пара, воды, электроэнергии и т. п.; основная заработная плата линейных рабочих; расходы на содержание и эксплуатацию строительных машин и механизмов</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">46. По способу взимания налоги подразделяются:</h2>
+    <p class="mt-2">прямые; косвенные</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">47. Оценка объектов основных средств осуществляется по:</h2>
+    <p class="mt-2">первоначальной стоимости; остаточной стоимости; восстановительной стоимости</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">48. Капитальный ремонт осуществляется с применением следующих форм деятельности:</h2>
+    <p class="mt-2">хозспособа; подрядного</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">49. Основные производственные фонды бывают:</h2>
+    <p class="mt-2">производственного назначения; непроизводственного назначения</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">50. В стоимость 1 маш - часа работы строительных машин и механизмов включается:</h2>
+    <p class="mt-2">Доставка машин на строительную площадку; амортизация, монтаж, демонтаж, ремонт строительных машин и механизмов; зарплата машинистов и другого обслуживающего персонала</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">51. В состав накладных расходов входят:</h2>
+    <p class="mt-2">административно-хозяйственные расходы; расходы на обслуживание работников строительства; расходы на организацию работ на строительных площадках</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">52. Определите фазы инвестиционного цикла:</h2>
+    <p class="mt-2">прединвестиционная; инвестиционная; производственная</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">53. Источником инвестиций в условиях рынка является:</h2>
+    <p class="mt-2">бюджетные средства; собственные средства предприятия; иностранные инвестиции</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">54. К налогам на имущество в РТ относятся:</h2>
+    <p class="mt-2">земельный налог; налог на транспортные средства; налоги на объекты недвижимости</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">55. Организационно-технологическое и социально-экономическое объединение работников одинаковых профессий (специализированная бригада) или разных профессий (комплексная бригада) на базе соответствующих производств, оборудования, инструмента, оснащения, сырья и материалов, для выполнения производственного задания на основе коллективной материальной заинтересованности и ответственности - это</h2>
+    <p class="mt-2">предприятие</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">56. Юридическое или физическое лицо, выполняющее СМР и оказывающее другие услуги по договору с заказчиком - это</h2>
+    <p class="mt-2">подрядчик</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">57. Укрупненные нормы накладных расходов по основным видам строительства выражаются в</h2>
+    <p class="mt-2">процентах</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">58. Самостоятельный хозяйствующий субъект с правом юридического лица, созданный в порядке, установленном законом, для производства продукции, выполнения работ и оказания услуг в целях удовлетворения общественных потребностей и получения прибыли это</h2>
+    <p class="mt-2">предприятие</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">59. Среднегодовая стоимость основных производственных фондов рассчитывается как</h2>
+    <p class="mt-2">средневзвешенная величина</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">60. Затраты, которые не зависят от объема производства, называются</h2>
+    <p class="mt-2">постоянными затратами</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">61. Переменные затраты, которые зависят от объема производства, составляют более половины</h2>
+    <p class="mt-2">общих затрат</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">62. Показатель сравнительной эффективности капиталовложений это</h2>
+    <p class="mt-2">срок окупаемости</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">63. Фондоотдача</h2>
+    <p class="mt-2">это отношение объема выпуска продукции к среднегодовой стоимости основных производственных фондов</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">64. Фондоёмкость</h2>
+    <p class="mt-2">это отношение среднегодовой стоимости основных фондов к объему выпуска продукции</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">65. Программа решения экономической проблемы вложения средств в такую бизнес-идею, которая приводит к их отдаче, получению дохода, прибыли, социальных эффектов это</h2>
+    <p class="mt-2">инвестиционный проект</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">66. Фонды, которые не меняют свою натурально-вещественную форму, переносят свою стоимость на готовую продукцию по частям и участвуют в производственном цикле несколько раз называются</h2>
+    <p class="mt-2">основными</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">67. Фонды, которые участвуют в производственном цикле один раз, меняют свою натурально-вещественную форму и переносят свою стоимость на готовую продукцию полностью, называются</h2>
+    <p class="mt-2">оборотными</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">68. Денежные средства, которые направляются на воспроизводство основных фондов называются</h2>
+    <p class="mt-2">капитальными вложениями</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">69. Вложения финансовых и материально-технических средств в развитие предприятия или экономики в целом, называются</h2>
+    <p class="mt-2">инвестициями</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">70. Величина затрат труда, установленная на выполнении продукции рабочими соответствующей профессии и квалификации, работающими при правильной организации труда, называется</h2>
+    <p class="mt-2">нормой затрат труда</p>
+  </li>
+  <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">71. Количество рабочего времени, установленное для производства единицы доброкачественной продукции рабочими соответствующей профессии и квалификации, работающими в условиях правильной организации производства и труда называется</h2>
+    <p class="mt-2">нормой времени</p>
+  </li>
+    <li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">72. Количество доброкачественной продукции, произведенной (выполненной) за единицу времени рабочими соответствующей квалификации, работающими при правильной организации производства и труда называется</h2>
+    <p class="mt-2">нормой выработки</p>
+  </li>
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">73. Налог</h2>
+    <p class="mt-2">это платеж, установленный НК РТ в государственный бюджет, носящий обязательный и индивидуально безэквивалентный характер</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">74. Имущественный наем, основанный на договоре о представлении имущества во временное пользование за определенную плату - это:</h2>
+    <p class="mt-2">аренда</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">75. Вид инвестиционной деятельности по приобретению имущества и передаче его на основании договора лизинга юридическим и реже физическим лицам на установленный срок, за определенную плату и в соответствии с условиями, закрепленными договором, с правом выкупа имущества лизингополучателем - это</h2>
+    <p class="mt-2">лизинг</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">76. Вложения средств в объекты предпринимательской деятельности с целью получения прибыли - это</h2>
+    <p class="mt-2">инвестиции</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">77. Капитальные _________ - это реальные инвестиции в основной капитал (ОФ), в т.ч. затраты на новое строительство, на расширение, реконструкцию и техническое перевооружение действующих предприятий, приобретение машин, оборудования, проектно-изыскательские работы и др. затраты, а так же затраты на жилищное и культурно-бытовое строительстваа</h2>
+    <p class="mt-2">Вложения</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">78. строительства – отдельное здание или сооружение со всеми относящимся к нему частями, оборудованием, инвентарём, инструментом, внутренними инженерными сетями и коммуникациями на строительство, расширение или реконструкция компонентов, имеется отдельная смета</h2>
+    <p class="mt-2">Объект</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">79. Шкала тарифных разрядов и соответствующих им тарифных коэффициентов это - тарифная _________</h2>
+    <p class="mt-2">Сетка</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">80. Юридическое или физическое лицо, осуществляющее вложение собственных, привлеченных или заемных средств в создание или воспроизводство основных фондов это -</h2>
+    <p class="mt-2">Инвестор</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">81. Число, показывающее, на сколько ставка данного разряда выше ставки первого разряда это _________ коэффициент.</h2>
+    <p class="mt-2">Тарифный</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">82. Тарифная _________ размер оплаты труда за единицу времени.</h2>
+    <p class="mt-2">Ставка</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">83. _________ проектная, проектно-изыскательская и научно- исследовательская организация, осуществляющая разработку проекта объекта строительства.</h2>
+    <p class="mt-2">Проектировщик</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">84. Тарифно-квалификационный _________ представляет собой перечень характеристик работ и тех требований, которым должен отвечать выполняющий их рабочий.</h2>
+    <p class="mt-2">справочник</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">85. Коэффициент _________ оборотных средств – характеризует количество оборотов оборотных средств за определенный период.</h2>
+    <p class="mt-2">Оборачиваемости</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">86. Постепенный перенос стоимости основных фондов на вновь созданную продукцию - это:</h2>
+    <p class="mt-2">Амортизация</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">87. Натуральные _________ характеризуют производственную специализацию предприятия и его долю на рынке</h2>
+    <p class="mt-2">Измерители</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">88. Экономическая категория, отражающая сущность расширенного воспроизводства, которая характеризует степень достижения основных целей, присущих расширенному воспроизводству это экономическая</h2>
+    <p class="mt-2">эффективность</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">89. Практическое осуществление, превращение проектного образа в конкретную экономическую деятельность это есть</h2>
+    <p class="mt-2">Проекта</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">90. Разработка _________ это создание модели, образа действий по достижению целей проекта, осуществление расчетов, выбор варианта</h2>
+    <p class="mt-2">Проекта</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">91. Отрезок времени между началом инвестирования вложения средств и моментом получения отдачи от этих вложений называют временным _________</h2>
+    <p class="mt-2">Лагом</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">92. _________ проект - это программа решения экономической проблемы вложения средств в такую бизнес-идею, которая приводит к их отдаче, получению дохода, прибыли, социальных эффектов.</h2>
+    <p class="mt-2">Инвестиционный</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">93. Процесс постепенного перенесения стоимости основных фондов по частям на себестоимость продукции называется</h2>
+    <p class="mt-2">амортизацией</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">94. _________ основных фондов – это утрата первоначальной потребительной стоимости вследствие изнашивания, ветхости и устаревания или потеря экономической эффективности использования основных фондов до истечении срока их полного физического износа.</h2>
+    <p class="mt-2">Износ</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">95. Количество рабочего времени, установленное для производства единицы доброкачественной продукции рабочими соответствующей профессии и квалификации, работающими в условиях правильной организации производства и труда это - норма _________</h2>
+    <p class="mt-2">Времени</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">96. Количество доброкачественной продукции, произведенной (выполненной) за единицу времени рабочими соответствующей квалификации, работающими при правильной организации производства и труда - это норма</h2>
+    <p class="mt-2">выработки</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">97. Платеж установленный НК РТ в государственный бюджет, носящий обязательный и индивидуально безэквивалентный характер – это</h2>
+    <p class="mt-2">Налог</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">98. Фонды, которые участвуют в производственном цикле один раз, меняют свою натурально-вещественную форму и переносят свою стоимость на готовую продукцию полностью, называются _________ фондами</h2>
+    <p class="mt-2">Оборотными</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">99. Инвестиционный _________ это выработка идеи строительства, обоснование инвестиций, проектирование строительства, период работы на окупаемость, на чистый доход и до разрушения и утилизации</h2>
+    <p class="mt-2">Цикл</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">100. Денежный документ, удостоверяющий имущественные права либо отношения займа, осуществление или передача которых возможны только при его предъявлении это - ценная</h2>
+    <p class="mt-2">Бумага</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">101. Саморегулируемая, основанная на экономической свободе система отношений между продавцом и покупателем по поводу обмена, купли- продажи товаров (услуг), при которой обеспечивается необходимый спрос и предложение это –</h2>
+    <p class="mt-2">Рынок</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">102. Вероятность возникновения потерь или снижения доходов по сравнению с доступным вариантом это</h2>
+    <p class="mt-2">Риск</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">103. В текущем году строительной организацией выпущен объем работ на сумму 380 тыс. с. При этом в организации работало 42 человека. В плани-руемом году предполагается выпустить продукцию на сумму 450 тыс. с., а количество работников предполагается, увеличить на 6 человек. Определить, на сколько % вырастет выработка в планируемом году по сравнению с текущим годом?</h2>
+    <p class="mt-2">3.5</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">104. Определить потребность строительной организации в оборотных средст-вах с годовым объемом строительно-монтажных работ 300 тыс. с, если пла-нируется длительность одного оборота довести до 60 дней.</h2>
+    <p class="mt-2">50</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">105. Определить срок окупаемости вложенных средств на приобретениеквартирыза 60 тыс. долл. сцельюпоследующей сдачи ее внаемза 400 долларов ежемесячной арендной платы. (лет)</h2>
+    <p class="mt-2">12.5</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">106. Определить сметную стоимость землянных работ при строительстве производственного корпуса, если себестоимость работ составила 37,3 тыс.сомони, ФОТ рабочих 4,7 тыс.сомони, плановые накопления 50 % от ФОТ рабочих</h2>
+    <p class="mt-2">39.6</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">107. Определить сметную стоимость отделочных работ, если прямые затраты составляют 744 445 сомони, вт.ч. зарплата рабочих 143560 сомони, накладные расходы 105%, плановые накопления 55%.</h2>
+    <p class="mt-2">1010031</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">108. Определить ежегодную сумму амортизационных отчислений экскава-тора, если оптовая цена - 448,1 тыс.с.; затраты на доставку - 7% оптовой цены; нормативный срок службы - 10 лет, ликвидационная стоимость - 5,4% оптовой цены.</h2>
+    <p class="mt-2">45.5</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">109. Остаточная стоимость оборудования, составляет 43 тыс. руб, его перво-начальная стоимость равнялась 87,1 тыс. с., норма амортизации - 7%. Опре-делить срок эксплуатации оборудования (лет).</h2>
+    <p class="mt-2">7.2</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">110. При 20%ставке требуется получить чистую прибыль в первом году 7,0 тыс. с, во втором 6,0 тыс. с, в третьем 5,0 тыс. с. Каково должно быть минимальное значение вложенного капитала (тыс.с.)?</h2>
+    <p class="mt-2">13</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">111. Нормативное время на выполнение работы составляет 2500 чел-дн, фак-тически затрачено бригадой 2100 чел-дн. Определить процент сокращения нормативного времени.</h2>
+    <p class="mt-2">16</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">112. Для открытия предприятия необходимо иметь 20000 сомони. АО предлагает вложить средства при 20% норме прибыли. Каким должен быть первоначаль-ный вклад, чтобы через три года иметь 20000 сомони?</h2>
+    <p class="mt-2">11574</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">113. Среднесписочное количество рабочих за 1 квартал - 830 чел., 2 квартал -825 чел., июль - 798 чел., август - 820 чел., сентябрь - 820 чел., октябрь - 825 чел., ноябрь - 830 чел., декабрь - 830 чел. Определить среднесписочное коли-чество рабочих за отчетный год</h2>
+    <p class="mt-2">824</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">114. Определить продолжительность одного оборота оборотных средств, если объем строительно-монтажных работ за отчетный год составил 87 тыс. сомони, а среднегодовая стоимость оборотных средств ~ 4,8 тыс. сомони.</h2>
+    <p class="mt-2">15</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">115. Когда был принят Закон РТ "О финансовой аренде (лизинге)"</h2>
+    <p class="mt-2">2003</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">116. Определить норму выработки для звена каменщиков из 2 человек за 7-часовую смену на кладке наружных стен из эффективного кирпича с расшивкой швов размером 250х120х138 мм толщиной 51 см средней сложности на сложном растворе. Норма времени 3,7 чел.-час. (м³)</h2>
+    <p class="mt-2">3.8</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">117. Строительная организация приобрела грузовой автомобиль стоимостью 484 тыс.сомони, гарантированный пробег которого 400 тыс. км. За первый год пробег составил 45 тыс. км. Определить сумму амортизационных отчислений автомобиля по способу списания стоимости пропорционально объему (работ):</h2>
+    <p class="mt-2">54450</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">118. Определить оптовую цену трактора, если известно, что его первоначаль-ная стоимость равна 715 тыс. сомони, а затраты на транспортировку составили 6 тыс сомони</h2>
+    <p class="mt-2">413000</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+    <h2 class="text-xl font-semibold">119. Определить норму амортизации на восстановление первоначальной стоимо-сти гусеничного крана, если известно, что его первоначальная стоимость равна 467 тыс.сомони, остаточная стоимость после 14 лет эксплуатации равна 19,71 тыс.сомони.</h2>
+    <p class="mt-2">6.8</p>
+</li>
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">120. Норма времени на устроиство вручную І м²покрытий тротуаров из бетонных плит площадью 0,65 м²с обработкой швов цементным раствором установлена для облицовщика-плиточника 3-го разряда и дорожного рабочего 2-го разрада в размере 0,45 чел.-ч. Определить сколько м²являются норму выработки за 1 час для этих двух рабочих: (м²)</h2>
+<p class="mt-2">4.4</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">121. Определить норму выработки для звена каменщиков из 2 человек за 7-часовую смену на кладке наружных стен из эффективного кирпича с расшивкой швов размером 250х120х138 мм толщиной 51 см средней сложности на сложном растворе. Норма времени 3,7 чел.-час. (м³)</h2>
+<p class="mt-2">3.8</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">122. Бригада выполнила задание за 3180 чел.час при нормативном времени 3878 чел.-час. Процент сокращения нормативного времени составит:</h2>
+<p class="mt-2">18</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">123. Определить продолжительность одного оборота оборотных средств, если объем строительно-монтажных работ за отчетный год составил 87 тыс. сомони, а среднегодовая стоимость оборотных средств ~ 4,8 тыс. сомони. (дней)</h2>
+<p class="mt-2">20</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">124. Определить плановую себестоимость отделочных работ при следующих исходных данных: сметная стоимость работ, выполняемая собст-венными силами –256,45 тыс. сомони; фонд оплаты труда рабочих 28743 сомони; норматив сметной прибыли–55 %.</h2>
+<p class="mt-2">240641</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">125. Как называются архитектурно-строительные объекты, предназначенные для создания условий труда, жилья, материальных ценностей и т.д.</h2>
+<p class="mt-2">здания</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">126. Какими методами определяется стоимость инженерных изысканий:</h2>
+<p class="mt-2">расчет по натуральным показателям объекта (НПО)</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">127. При определении базовой цены проектирования по Сборникам базовых цен на проектные работы для строительства в случае сокращения конкретных сроков проектирования по сравнению с нормативными, по согласованию с заказчиком рекомендуется применять следующие повышающие коэффициенты:</h2>
+<p class="mt-2">при сокращении срока в 1,4 раза - до 1,2;</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">128. Факторы, усложняющие проектирование</h2>
+<p class="mt-2">Сейсмичность 9 баллов</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">129. Какими способами ведутся инженерные изыскания?</h2>
+<p class="mt-2">фотографией рабочего дня</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">130. В каких случаях при расчете цены проектных работ используются методы экстраполяции и интерполяции?</h2>
+<p class="mt-2">В случае, когда проектируемый объект имеет значение основного показателя меньше минимального или больше максимального показателя, приведенных в таблице СБЦ;</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">131. Базовая цена разработки проектной документации в зависимости от натуральных показателей объектов проектирования определяется по формуле:</h2>
+<p class="mt-2">C = (a + B x) × K₁,</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">132. Если показатель мощности объекта меньше табличного показателя, базовая цена его проектирования определяется по формуле:</h2>
+<p class="mt-2">Ц = а +в х (0,4 х Х тіп + 0,6 х Х зад),</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">133. Если показатель мощности объекта больше табличного показателя, базовая цена его проектирования определяется по формуле:</h2>
+<p class="mt-2">Ц = а +в х (0,4 х Х тах + 0,6 х Х зад),</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">134. Назовите затраты, которые зависят от объема производства:</h2>
+<p class="mt-2">Переменные</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">135. Укажите затраты, которые не зависят от объема производства:</h2>
+<p class="mt-2">Постоянные</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">136. Укрупненные нормы накладных расходов по основным видам строительства выражаются в</h2>
+<p class="mt-2">Процентах</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">137. Самостоятельный хозяйствующий субъект с правом юридического лица, созданный в порядке, установленном законом, для производства продукции, выполнения работ и оказания услуг в целях удовлетворения общественных потребностей и получения прибыли - это:</h2>
+<p class="mt-2">Предприятие</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">138. Среднегодовая стоимость основных производственных фондов рассчитывается как величина:</h2>
+<p class="mt-2">средневзвешенная</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">139. Отношение среднегодовой стоимости основных фондов к объему выпуска продукции- это:</h2>
+<p class="mt-2">фондоотдача</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">140. Отношение объема выпуска продукции к среднегодовой стоимости основных производственных фондов— это:</h2>
+<p class="mt-2">Фондоемкость</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">141. Платеж, установленный НК РТ в государственный бюджет, носящий обязательный и индивидуально безэквивалентный характер – это:</h2>
+<p class="mt-2">Налог</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">142. Денежный сбор, взимаемый уполномоченными официальными органами при выполнении ими определённых функций в размерах, предусмотренных законодательством государства - это:</h2>
+<p class="mt-2">Пошлина</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">143. Обязательный платеж, взимаемый таможенными органами в связи с перемещением товаров через таможенную границу (таможенные границы могут отличаться от государственных, если государства состоят в экономических или таможенных союзах) это таможенная</h2>
+<p class="mt-2">Пошлина</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">144. В состав инженерных изысканий входят:</h2>
+<p class="mt-2">инженерно-геодезические и инженерно-геологические; инженерно-гидрометереологические и инженерно-экологические; изыскания грунтовых строительных материалов и источников водоснабжения на базе подземных вод</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">145. Нормативная потребность в строительных машинах может определяться:</h2>
+<p class="mt-2">по данным проекта организации строительства (ПОС); по данным проекта производства работ (ППР); по фактическим затратам на эксплуатацию машин и механизмов, используемых при строительстве объекта или выполнении строительно-монтажных работ с последующим сопоставлением полученных результатов с данными ПОС или ППР.</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">146. Прямые затраты зависят от:</h2>
+<p class="mt-2">объемов работ, необходимых ресурсов; сметных норм; цен на ресурсы</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">147. Показатели себестоимости СМP:</h2>
+<p class="mt-2">плановая себестоимость; сметная себестоимость; фактическая себестоимость</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">148. Стоимость строительства (технологическая структура капитальных вложений) состоит из:</h2>
+<p class="mt-2">стоимости строительных работ; стоимости монтажных работ; затрат на приобретение оборудования, мебели, инвентаря; прочие работы и затраты</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">149. Сумма денежных средств, необходимых для осуществления строительства в соответствии с проектными материалами называется сметной</h2>
+<p class="mt-2">Стоимостью</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">150. При определении сметной стоимости строительно-монтажных работ общеотраслевой норматив сметной прибыли составляет % к величине средств на оплату труда рабочих (строителей и механизаторов) и используется для выполнения общеэкономических расчётов в инвестиционной сфере.</h2>
+<p class="mt-2">65</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">151. Общеотраслевой норматив сметной прибыли в составе сметной стоимости ремонтно-строительных работ составляет ............% к величине средств на оплату труда рабочих (строителей и механизаторов).</h2>
+<p class="mt-2">50</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">152. Приобретение в собственность имущества (оборудования) и предоставление его за определенную плату во временное владение и пользование — это:</h2>
+<p class="mt-2">лизинг</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">153. Расширенное воспроизводство основных фондов обеспечивает следующая форма строительства:</h2>
+<p class="mt-2">реконструкция</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">154. ЭСН -2007 расшифровывается как:</h2>
+<p class="mt-2">элементная сметная норма</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">155. Укажите какие затраты входят в состав «Прямые затраты (ПЗ) » :</h2>
+<p class="mt-2">затраты на приобретение строительных материалов, конструкций, деталей, топлива, пара, воды, электроэнергии и т. п.; расходы на эксплуатацию машин и механизмов</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">156. Определите фазы инвестиционного цикла:</h2>
+<p class="mt-2">инвестиционная; прединвестиционная; эксплуатационная</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">157. В состав накладных расходов входят:</h2>
+<p class="mt-2">административно-хозяйственные расходы; расходы на обслуживание работников строительства;</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">158. В стоимость 1 маш - часа работы строительных машин и механизмов включается:</h2>
+<p class="mt-2">Доставка машин на строительную площадку; зарплата машинистов и другого обслуживающего персонала; амортизация; монтаж, демонтаж, ремонт строительных машин и механизмов;</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">159. Основные материалы-</h2>
+<p class="mt-2">это материалы, входящие в состав основной строительной продукции (кирпич и раствор при кирпичной кладке, штукатурная смесь при штукатурке).</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">160. Вспомогательные материалы-</h2>
+<p class="mt-2">это материалы, которые используют в ходе строительного процесса, но в состав основной продукции не входят (наждачная бумага для заглаживания шероховатости оштукатуренной поверхности, пакля для конопатки зазоров и т.п.)</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">161. Норма расхода-</h2>
+<p class="mt-2">это количество строительного материала, необходимое и достаточное для изготовления единицы строительной продукции, удовлетворяющей техническим регламентам, при рациональной технологии производства и с учетом допустимых отходов и потерь.</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">162. Сметная документация состоит из:</h2>
+<p class="mt-2">локальной ресурсной сметы; объектной сметы; сводной сметы</p>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">163. Сумма денежных средств, необходимых для осуществления строительства в соответствии с проектными материалами называется сметной стоимостью</h2>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">164. Сметная себестоимость определяется проектной организацией на основании документов по сметным нормам и текущим ценам на дату ее расчета.</h2>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">165. Плановая себестоимость это прогнозное значение предельной величины затрат строительной организации при строительстве объекта</h2>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">166. Фактическая себестоимость - это сумма затрат, произведенных строительной организацией в ходе строительства объекта недвижимости в существующих условиях.</h2>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">167. Под накладными (косвенными) затратами понимают расходы, связанные с организацией и управлением производством строительных работ.</h2>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">168. Накладные расходы - это комплексные затраты, связанные с деятельностью строительной организации в целом, которые не могут быть отнесены непосредственно на определенный объект учета в строительном производстве или при выпуске продукции и оказании услуг.</h2>
+</li>
+
+<li class="bg-white p-4 rounded-md shadow-md question-item">
+<h2 class="text-xl font-semibold">169. Сметная прибыль- это средства в составе сметной стоимости строительной продукции – это средства, предназначенные для покрытия расходов подрядных организаций на развитие производства и материальное стимулирование работников.</h2>
+</li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
